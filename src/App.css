@@ -14,7 +14,7 @@
     grid-template:
         "search search search" 150px 
         "location temperature picture" 1fr 
-        "details temperature picture" 1fr /
+        "details greeting picture" 1fr /
         0.75fr 1fr 1fr
 }
 
@@ -41,4 +41,8 @@
 .picture {
     grid-area: picture;
         border: 1px solid yellow
+}
+
+.greeting {
+    grid-area: greeting;
 }

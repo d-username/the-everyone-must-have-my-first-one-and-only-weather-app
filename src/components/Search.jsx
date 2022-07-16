@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 
-function Search() {
+function Search({
+  setCurrentLocation,
+  currentLocation,
+  CurrentConditions,
+  setCurrentConditions
+}) {
   const [inputText, setInputText] = useState('');
   const [searchText, setSearchText] = useState('');
   const [locationKey, setLocationKey] = useState('');
@@ -14,14 +19,20 @@ function Search() {
     )
       .then((res) => res.json())
       .then((data) => {
-        //console.log('this is the key', data[0].Key);
-        setLocationKey(data[0].Key);
         console.log('this is the location data: ,', data);
+        setLocationKey(data[0].Key);
+        setCurrentLocation({
+          ...currentLocation,
+          city: data[0].EnglishName,
+          country: data[0].Country.EnglishName,
+        });
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, [searchText]);
+
+  // FIXME: the locationKey is not always what i look for, for example London is also in Nigeria.
 
   // now that i have the location key, i can fetch the current conditions for the location.
   useEffect(() => {
@@ -31,13 +42,18 @@ function Search() {
       .then((res) => res.json())
       .then((data) => {
         console.log('this is the weather data ', data);
+        setCurrentConditions({
+          ...CurrentConditions,
+          celsius: Math.round(data[0].Temperature.Metric.Value),
+          fahrenheit: Math.round(data[0].Temperature.Imperial.Value),
+          weatherText: data[0].WeatherText,
+          UVIndexText: data[0].UVIndexText,
+        });
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, [locationKey]);
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();

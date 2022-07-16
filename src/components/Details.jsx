@@ -1,5 +1,11 @@
-function Details() {
-  return <div className='details'>this is the DETAILS component</div>;
+function Details({ currentConditions }) {
+
+  return (
+    <div className='details'>
+      <p>{currentConditions.weatherText}</p>
+      <p>{currentConditions.UVIndexText}</p>
+    </div>
+  );
 }
 
 export default Details;
