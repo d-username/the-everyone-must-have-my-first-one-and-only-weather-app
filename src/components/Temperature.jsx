@@ -1,5 +1,5 @@
 function Temperature() {
-  return <div>this is the TEMPERATURE component</div>;
+  return <div className='temperature'>this is the TEMPERATURE component</div>;
 }
 
 export default Temperature;

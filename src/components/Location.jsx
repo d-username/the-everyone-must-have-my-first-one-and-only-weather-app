@@ -1,5 +1,5 @@
 function Location() {
-  return <div>this is the LOCATION component</div>;
+  return <div className='location'></div>;
 }
 
 export default Location;

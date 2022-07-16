@@ -5,3 +5,40 @@
     font-family: sans-serif;
 }
 
+.App-wrapper {
+    background-color: lightblue;
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template:
+        "search search search" 150px 
+        "location temperature picture" 1fr 
+        "details temperature picture" 1fr /
+        0.75fr 1fr 1fr
+}
+
+.search {
+    grid-area: search;
+    border: 1px solid blue
+}
+
+.location {
+    grid-area: location;
+        border: 1px solid blue
+}
+
+.temperature {
+    grid-area: temperature;
+        border: 1px solid green
+}
+
+.details {
+    grid-area: details;
+        border: 1px solid red
+}
+
+.picture {
+    grid-area: picture;
+        border: 1px solid yellow
+}
