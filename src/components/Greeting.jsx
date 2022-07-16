@@ -28,8 +28,8 @@ function Greeting() {
 
   return (
     <div className='greeting'>
-      <p>good {dayPart},</p>
-      <p>{day}</p>
+      <p className="greeting-daypart">good {dayPart},</p>
+      <p className="greeting-day">{day}</p>
     </div>
   );
 }

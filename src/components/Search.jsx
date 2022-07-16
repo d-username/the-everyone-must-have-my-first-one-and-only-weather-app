@@ -65,6 +65,7 @@ function Search({
   return (
     <form className='search' onSubmit={(e) => handleSubmit(e)}>
       <input
+      className='search-field'
         type='search'
         id='search'
         name='search'

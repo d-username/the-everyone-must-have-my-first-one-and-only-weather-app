@@ -1,8 +1,9 @@
 function Temperature({currentConditions}) {
   return (
     <div className='temperature'>
-      <p>{currentConditions.celsius}</p>
-      <p>{currentConditions.fahrenheit}</p>
+        <span className='temperature-celsius'> {currentConditions.celsius} </span> 
+        <span className='degree-sign'>°C</span>
+      {/* <p>{currentConditions.fahrenheit}</p> */}
     </div>
   );
 }

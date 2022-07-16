@@ -5,34 +5,36 @@ import Temperature from './components/Temperature.jsx';
 import Details from './components/Details.jsx';
 import Greeting from './components/Greeting.jsx';
 import Picture from './components/Picture.jsx';
+import MainWrapper from './components/MainWrapper';
 
 import { useState } from 'react';
-
 function App() {
   const [currentLocation, setCurrentLocation] = useState({
-    city: '',
-    country: '',
+    city: 'London',
+    country: 'United Kingdom',
   });
   const [currentConditions, setCurrentConditions] = useState({
-    celsius: null,
-    fahrenheit: null,
-    weatherText: '',
-    UVIndexText: '',
+    celsius: 27,
+    fahrenheit: 84,
+    weatherText: 'cludy',
+    UVIndexText: 'low',
   });
 
   return (
-    <div className='App-wrapper'>
-      <Search
-        setCurrentLocation={setCurrentLocation}
-        currentLocation={currentLocation}
-        currentConditions={currentConditions}
-        setCurrentConditions={setCurrentConditions}
-      />
-      <Location currentLocation={currentLocation} />
-      <Temperature currentConditions={currentConditions} />
-      <Details currentConditions={currentConditions} />
-      <Greeting />
-      <Picture />
+    <div className='App'>
+      <MainWrapper>
+        <Search
+          setCurrentLocation={setCurrentLocation}
+          currentLocation={currentLocation}
+          currentConditions={currentConditions}
+          setCurrentConditions={setCurrentConditions}
+        />
+        <Location currentLocation={currentLocation} />
+        <Picture />
+        <Temperature currentConditions={currentConditions} />
+        <Details currentConditions={currentConditions} />
+        <Greeting />
+      </MainWrapper>
     </div>
   );
 }
