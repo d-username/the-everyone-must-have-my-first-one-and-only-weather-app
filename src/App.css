@@ -63,7 +63,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .location {
-    /* grid-area: location; */
     place-self: center;
     text-align: center;
 }
@@ -77,7 +76,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .temperature {
-    /* grid-area: temperature; */
     place-self: center;
     display: flex;
 }
@@ -94,7 +92,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .details {
-    /* grid-area: details; */
     place-self: center;
 }
 
@@ -103,13 +100,36 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .picture {
-    /* grid-area: picture; */
     display: flex;
     place-self: center;
+    height: 17rem;
+    width: 17rem;
+    position: relative;
+    place-items: center;
+    justify-content: center;
 }
 
+.image-backdrop{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+
+    position: absolute;
+    z-index: 0;
+    right: 55px;
+    top: 55px;
+}
+
+.image {
+    width: 170px;
+    height: 170px;
+ 
+    position: relative;
+    top: 230;
+    left: 150; 
+ }
+
 .greeting {
-    /* grid-area: greeting; */
     place-self: center;
     text-align: center;
 }

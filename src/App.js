@@ -16,7 +16,7 @@ function App() {
   const [currentConditions, setCurrentConditions] = useState({
     celsius: 27,
     fahrenheit: 84,
-    weatherText: 'cludy',
+    weatherText: '',
     UVIndexText: 'low',
   });
 
@@ -30,7 +30,7 @@ function App() {
           setCurrentConditions={setCurrentConditions}
         />
         <Location currentLocation={currentLocation} />
-        <Picture />
+        <Picture currentConditions={currentConditions} />
         <Temperature currentConditions={currentConditions} />
         <Details currentConditions={currentConditions} />
         <Greeting />
