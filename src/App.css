@@ -24,23 +24,9 @@
     width: 25rem;
     border-radius: 35px;
 
-    /* display: grid;
-    grid-template:
-        "search" 1fr 
-        "location " 1fr 
-        "picture" 1fr
-        "temperature" 1fr
-        "details" 1fr
-        "greeting" 1fr /
-        1fr */
-
     display: flex;
     flex-direction: column;
 }
-
-/* .search {
-    grid-area: search;
-} */
 
 .search-field {
     border: none;
@@ -60,6 +46,11 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
     display: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
 }
 
 .location {
@@ -132,6 +123,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .greeting {
     place-self: center;
     text-align: center;
+    margin: 30px;
 }
 
 .greeting-daypart{

@@ -4,7 +4,8 @@ function Search({
   setCurrentLocation,
   currentLocation,
   CurrentConditions,
-  setCurrentConditions
+  setCurrentConditions,
+  setShowContent,
 }) {
   const [inputText, setInputText] = useState('');
   const [searchText, setSearchText] = useState('');
@@ -14,9 +15,8 @@ function Search({
 
   // API call for the locationKey:
   useEffect(() => {
-    fetch(
-      `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=jr5AaGayfOxj6lpq51dE355zXZ5oID9P&q=${searchText}&language=en-uk&details=false&offset=1`
-    )
+    fetch()
+    // `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=jr5AaGayfOxj6lpq51dE355zXZ5oID9P&q=${searchText}&language=en-uk&details=false&offset=1`
       .then((res) => res.json())
       .then((data) => {
         console.log('this is the location data: ,', data);
@@ -32,13 +32,10 @@ function Search({
       });
   }, [searchText]);
 
-  // FIXME: the locationKey is not always what i look for, for example London is also in Nigeria.
-
   // now that i have the location key, i can fetch the current conditions for the location.
   useEffect(() => {
-    fetch(
-      `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=jr5AaGayfOxj6lpq51dE355zXZ5oID9P&details=true`
-    )
+    fetch()
+    // `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=jr5AaGayfOxj6lpq51dE355zXZ5oID9P&details=true`
       .then((res) => res.json())
       .then((data) => {
         console.log('this is the weather data ', data);
@@ -49,6 +46,7 @@ function Search({
           weatherText: data[0].WeatherText,
           UVIndexText: data[0].UVIndexText,
         });
+        setShowContent(true);
       })
       .catch((err) => {
         console.log(err.message);
@@ -65,7 +63,7 @@ function Search({
   return (
     <form className='search' onSubmit={(e) => handleSubmit(e)}>
       <input
-      className='search-field'
+        className='search-field'
         type='search'
         id='search'
         name='search'

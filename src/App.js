@@ -1,24 +1,22 @@
 import './App.css';
+import MainWrapper from './components/MainWrapper.jsx';
 import Search from './components/Search.jsx';
-import Location from './components/Location.jsx';
-import Temperature from './components/Temperature.jsx';
-import Details from './components/Details.jsx';
-import Greeting from './components/Greeting.jsx';
-import Picture from './components/Picture.jsx';
-import MainWrapper from './components/MainWrapper';
+import Content from './components/Content.jsx';
 
 import { useState } from 'react';
 function App() {
   const [currentLocation, setCurrentLocation] = useState({
-    city: 'London',
-    country: 'United Kingdom',
+    city: 'Budapest',
+    country: 'Hungary',
   });
   const [currentConditions, setCurrentConditions] = useState({
-    celsius: 27,
-    fahrenheit: 84,
-    weatherText: '',
+    celsius: 25,
+    fahrenheit: 42,
+    weatherText: 'mostlySunny',
     UVIndexText: 'low',
   });
+
+  const [showContent, setShowContent] = useState(true);
 
   return (
     <div className='App'>
@@ -28,15 +26,23 @@ function App() {
           currentLocation={currentLocation}
           currentConditions={currentConditions}
           setCurrentConditions={setCurrentConditions}
+          setShowContent={setShowContent}
         />
-        <Location currentLocation={currentLocation} />
-        <Picture currentConditions={currentConditions} />
-        <Temperature currentConditions={currentConditions} />
-        <Details currentConditions={currentConditions} />
-        <Greeting />
+        {showContent && (
+          <Content
+            currentLocation={currentLocation}
+            currentConditions={currentConditions}
+          />
+        )}
       </MainWrapper>
     </div>
   );
 }
 
 export default App;
+
+// FIXME: the locationKey is not always what i look for, for example London is also in Nigeria. - FOR THIS I NEED TO WAIT FOR THE API TO BE AVAILABLE.
+// TODO: show the correct daypart, and greeting. - FOR THIS I NEED TO WAIT FOR THE API TO BE AVAILABLE.
+// TODO: styling, image backdrop, mayme slightly larger, some colours too bright ? - and maybe face in animation when change.
+// TODO: image a bit larger maybe.
+// TODO: option for fahrenhait.
