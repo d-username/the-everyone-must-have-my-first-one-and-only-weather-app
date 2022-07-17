@@ -4,14 +4,14 @@ import Details from './Details.jsx';
 import Greeting from './Greeting.jsx';
 import Picture from './Picture.jsx';
 
-const Content = ({currentLocation, currentConditions}) => {
+const Content = ({ currentData }) => {
   return (
     <div className='content'>
-      <Location currentLocation={currentLocation} />
-      <Picture currentConditions={currentConditions} />
-      <Temperature currentConditions={currentConditions} />
-      <Details currentConditions={currentConditions} />
-      <Greeting />
+      <Location currentData={currentData} />
+      <Picture currentData={currentData} />
+      <Temperature currentData={currentData} />
+      <Details currentData={currentData}  />
+      <Greeting currentData={currentData}/>
     </div>
   );
 };

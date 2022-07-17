@@ -1,34 +1,34 @@
 import { useState } from 'react';
 
-function Temperature({ currentConditions }) {
+function Temperature({ currentData }) {
+  const celsius = Math.round(currentData.celsius)
+  const fahrenheit = Math.round((celsius * 1.8) + 32)
 
-const [temperature, setTemperature] = useState(currentConditions.celsius)
-const [primarySign, setPrimarySign] = useState('°C');
-const [secondarySign, setSecondarySign] = useState('°F');
+  const [temperature, setTemperature] = useState(celsius);
+  const [primarySign, setPrimarySign] = useState('°C');
+  const [secondarySign, setSecondarySign] = useState('°F');
 
-
-const changeUnit = () => {
-  if (temperature === currentConditions.celsius) {
-    setTemperature(currentConditions.fahrenheit);
-    setPrimarySign('°F');
-    setSecondarySign('°C');
-  }
-  if (temperature === currentConditions.fahrenheit) {
-    setTemperature(currentConditions.celsius);
-    setPrimarySign('°C');
-    setSecondarySign('°F');
-  }
-}
+  const changeUnit = () => {
+    if (temperature === celsius) {
+      setTemperature(fahrenheit);
+      setPrimarySign('°F');
+      setSecondarySign('°C');
+    }
+    if (temperature === fahrenheit) {
+      setTemperature(celsius);
+      setPrimarySign('°C');
+      setSecondarySign('°F');
+    }
+  };
 
   return (
     <div className='temperature'>
       <span className='temperature-number'>{temperature}</span>
       <span className='degree-sign'>
         <span className='primaryUnit-sign'>{primarySign}</span>
-        <span
-          className='secondaryUnit-sign'
-          onClick={() => changeUnit()}
-        >{secondarySign}</span>
+        <span className='secondaryUnit-sign' onClick={() => changeUnit()}>
+          {secondarySign}
+        </span>
       </span>
     </div>
   );

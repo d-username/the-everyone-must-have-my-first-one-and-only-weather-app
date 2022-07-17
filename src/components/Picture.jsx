@@ -1,5 +1,4 @@
-function Picture({ currentConditions }) {
-
+function Picture({ currentData }) {
   const pictures = {
     sunny: 'sunny',
     mostlySunny: 'mostly-sunny',
@@ -11,6 +10,9 @@ function Picture({ currentConditions }) {
     fog: 'fog',
     snow: 'snowflake',
     wind: 'wind',
+    nightClear: 'night-clear-moon',
+    nightFewClouds: 'night-few-clouds',
+    nightRain: 'night-rain',
   };
 
   const backdropColours = {
@@ -24,41 +26,32 @@ function Picture({ currentConditions }) {
     fog: '#90a4ae',
     snow: '#b3e5fc',
     wind: '#cddc39',
+    nightClear: '#ffcdd2',
+    nightFewClouds: '#90caf9',
+    nightRain: '#9fa8da',
   };
 
   const availableWeatherText = {
-    sunny: ['Sunny'],
-    mostlySunny: [
-      'Mostly Sunny',
-      'Partly Sunny',
-      'Intermittent Clouds',
-      'Partly Sunny w/ Flurries',
-    ],
-    mostlyCloudy: [
-      'Hazy Sunshine',
-      'Mostly Cloudy',
-      'Mostly Cloudy w/ Flurries',
-    ],
-    cloudy: ['Cloudy', 'Dreary (Overcast)', 'Flurries'],
-    sunAndRain: [
-      'Partly Sunny w/ Showers',
-      'Partly Sunny w/ T-Storms',
-      'Mostly Cloudy w/ Showers',
-    ],
-    rain: ['Showers', 'Rain'],
-    thunder: ['T-Storms', 'Mostly Cloudy w/ T-Storms'],
-    fog: ['Fog'],
-    snow: ['Snow', 'Mostly Cloudy w/ Snow'],
-    wind: ['Windy'],
+    sunny: ['01d'],
+    mostlySunny: ['02d'],
+    mostlyCloudy: ['03d', '03n'],
+    cloudy: ['04d', '04n'],
+    rain: ['09d', '09n'],
+    sunAndRain: ['10d'],
+    thunder: ['11d', '11n'],
+    snow: ['13d', '13n'],
+    fog: ['50d', '50n'],
+    wind: [''],
+    nightClear: ['01n'],
+    nightFewClouds: ['02n'],
+    nightRain: ['10n']
   };
 
-
- let displayVisual = ''
+  let displayVisual = '';
 
   for (const [key, value] of Object.entries(availableWeatherText)) {
-    if (value.includes(currentConditions.weatherText)) {
-      console.log('the key is: ', key);
-      displayVisual = key
+    if (value.includes(currentData.icon)) {
+      displayVisual = key;
     }
   }
 
@@ -67,13 +60,9 @@ function Picture({ currentConditions }) {
     boxShadow: `0px 0px 5px 10px ${backdropColours[displayVisual]}`,
   };
 
-
   return (
     <div className='picture'>
-      <div
-        className='image-backdrop'
-        style={backdropStyle}
-      ></div>
+      <div className='image-backdrop' style={backdropStyle}></div>
       <img
         src={`/icons/${pictures[displayVisual]}.png`}
         alt='sun'

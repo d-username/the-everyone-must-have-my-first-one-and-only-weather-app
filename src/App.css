@@ -109,6 +109,7 @@ input:focus {
 
 .details {
     place-self: center;
+    text-align: center;
 }
 
 .weather-text {
