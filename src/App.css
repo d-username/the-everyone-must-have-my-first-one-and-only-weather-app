@@ -126,14 +126,14 @@ input:focus {
 }
 
 .image-backdrop{
-    width: 85px;
-    height: 85px;
+    width: 100px;
+    height: 100px;
     border-radius: 50px;
 
     position: absolute;
     z-index: 0;
-    right: 55px;
-    top: 55px;
+    right: 30px;
+    top: 45px;
 }
 
 .image {

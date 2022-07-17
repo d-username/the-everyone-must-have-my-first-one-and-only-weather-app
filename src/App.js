@@ -6,17 +6,17 @@ import Content from './components/Content.jsx';
 import { useState } from 'react';
 function App() {
   const [currentLocation, setCurrentLocation] = useState({
-    city: '',
-    country: '',
+    city: 'venice',
+    country: 'Italy',
   });
   const [currentConditions, setCurrentConditions] = useState({
-    celsius: null,
-    fahrenheit: null,
-    weatherText: '',
-    UVIndexText: '',
+    celsius: 25,
+    fahrenheit: 43,
+    weatherText: 'Mostly Cloudy',
+    UVIndexText: 'low',
   });
 
-  const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(true);
 
   return (
     <div className='App'>

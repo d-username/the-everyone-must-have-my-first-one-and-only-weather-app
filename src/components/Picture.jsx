@@ -62,13 +62,17 @@ function Picture({ currentConditions }) {
     }
   }
 
+  const backdropStyle = {
+    backgroundColor: backdropColours[displayVisual],
+    boxShadow: `0px 0px 5px 10px ${backdropColours[displayVisual]}`,
+  };
+
+
   return (
     <div className='picture'>
       <div
         className='image-backdrop'
-        style={{
-          backgroundColor: backdropColours[displayVisual],
-        }}
+        style={backdropStyle}
       ></div>
       <img
         src={`/icons/${pictures[displayVisual]}.png`}
