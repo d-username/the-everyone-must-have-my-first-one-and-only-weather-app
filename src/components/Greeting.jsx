@@ -35,6 +35,3 @@ function Greeting() {
 }
 
 export default Greeting;
-
-
-//TODO: here for now i am going to display the local day, but later i wan tot display the time and day of the country of the search.
