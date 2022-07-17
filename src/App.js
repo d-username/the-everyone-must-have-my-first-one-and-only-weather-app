@@ -45,4 +45,4 @@ export default App;
 // TODO: show the correct daypart, and greeting. - FOR THIS I NEED TO WAIT FOR THE API TO BE AVAILABLE.
 // TODO: styling, image backdrop, mayme slightly larger, some colours too bright ? - and maybe face in animation when change.
 // TODO: image a bit larger maybe.
-// TODO: option for fahrenhait.
+// TODO: the weather text is showing the key not the value from the object

@@ -69,17 +69,41 @@ input[type="search"]::-webkit-search-results-decoration {
 .temperature {
     place-self: center;
     display: flex;
-}
-
-.temperature-celsius {
-    font-size: 75px;
+    gap: 5px;
 }
 
 .degree-sign {
+    display: flex;
+}
+
+.temperature-number {
+    font-size: 75px;
+}
+
+.primaryUnit-sign {
     font-size: 20px;
     font-weight: bold;
     margin-top: 15px;
-    margin-left: 15px px;
+    display: flex;
+    gap: 5px;
+    display: flex;
+    width: 15px;
+}
+
+.secondaryUnit-sign {
+    align-self: center;
+    color: grey;
+    padding-top: 5px;
+    width: 15px;
+    text-align: center;
+}
+
+.secondaryUnit-sign:hover {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .details {
