@@ -57,7 +57,7 @@ function Picture({ currentData }) {
 
   const backdropStyle = {
     backgroundColor: backdropColours[displayVisual],
-    boxShadow: `0px 0px 5px 10px ${backdropColours[displayVisual]}`,
+    boxShadow: `0px 0px 20px 20px ${backdropColours[displayVisual]}`,
   };
 
   return (

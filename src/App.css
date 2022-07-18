@@ -41,6 +41,7 @@ input[type="search"]::-webkit-search-results-decoration {
     border-bottom: 2px solid grey;
     padding: 4px;
     margin: 20px;
+    width: -webkit-fill-available;
 }
 
 textarea:focus,
@@ -57,6 +58,8 @@ input:focus {
 .location {
     place-self: center;
     text-align: center;
+    margin: 5px;
+    line-height: 30px;
 }
 
 .location-city {
@@ -149,14 +152,16 @@ input:focus {
 .greeting {
     place-self: center;
     text-align: center;
-    margin: 30px;
 }
 
 .greeting-daypart{
     font-size: 18px;
 }
 
-.greeting-day {
+.day {
     font-weight: bold;
     font-size: 35px;
+    place-self: center;
+    text-align: center;
+    margin: 10px;
 }
