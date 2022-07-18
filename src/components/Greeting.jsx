@@ -1,35 +1,40 @@
-function Greeting() {
-    const weekday = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ];
+function Greeting({ currentData }) {
+  const weekday = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
 
-    let now = new Date();
-    let day = weekday[now.getDay()].toUpperCase();
-    let dayPart;
+  const timeDifference = currentData.timezone / 3600;
+  
+  let now = new Date();
+  const timeInUTC = now.getUTCHours();
+  const locatTime = timeInUTC + timeDifference;
 
-    if (now.getHours() > 5 && now.getHours() <= 12) {
-        dayPart = 'morning'
-    }
-    if (now.getHours() > 12 && now.getHours() <= 18) {
-      dayPart = 'afternoon';
-    }
-    if (now.getHours() > 18 && now.getHours() <= 22) {
-      dayPart = 'evening';
-    }
-    if (now.getHours() > 22 && now.getHours() <= 5) {
-      dayPart = 'night';
-    }
+  let day = weekday[now.getDay()].toUpperCase();
+  let dayPart;
+    
+  if (locatTime > 5 && locatTime <= 12) {
+    dayPart = 'morning';
+  }
+  if (locatTime > 12 && locatTime <= 18) {
+    dayPart = 'afternoon';
+  }
+  if (locatTime > 18 && locatTime <= 22) {
+    dayPart = 'evening';
+  }
+  if (locatTime > 22 && locatTime <= 5) {
+    dayPart = 'night';
+  }
 
   return (
     <div className='greeting'>
-      <p className="greeting-daypart">good {dayPart},</p>
-      <p className="greeting-day">{day}</p>
+      <p className='greeting-daypart'>good {dayPart},</p>
+      <p className='greeting-day'>{day}</p>
     </div>
   );
 }

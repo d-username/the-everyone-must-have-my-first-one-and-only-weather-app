@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Temperature({ currentData }) {
-  const celsius = Math.round(currentData.celsius)
-  const fahrenheit = Math.round((celsius * 1.8) + 32)
-
+  const celsius = Math.round(currentData.celsius);
+  const fahrenheit = Math.round(celsius * 1.8 + 32)
   const [temperature, setTemperature] = useState(celsius);
   const [primarySign, setPrimarySign] = useState('°C');
   const [secondarySign, setSecondarySign] = useState('°F');
+
+  useEffect(() => {
+    setTemperature(celsius);
+    // eslint-disable-next-line
+  }, [currentData]); 
 
   const changeUnit = () => {
     if (temperature === celsius) {

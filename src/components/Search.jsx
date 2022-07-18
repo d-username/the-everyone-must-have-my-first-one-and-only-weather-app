@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function Search({currentData, setCurrentData, setShowContent}) {
+function Search({currentData, setCurrentData}) {
   const [inputText, setInputText] = useState('');
   const [searchText, setSearchText] = useState('');
 
@@ -18,6 +18,7 @@ function Search({currentData, setCurrentData, setShowContent}) {
           weatherText: data.weather[0].main,
           description: data.weather[0].description,
           icon: data.weather[0].icon,
+          timezone: data.timezone
         });
       })
       .catch((err) => {
