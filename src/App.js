@@ -18,5 +18,3 @@ function App() {
 }
 
 export default App;
-
-// TODO: show the correct daypart, and greeting. - FOR THIS I NEED TO WAIT FOR THE API TO BE AVAILABLE.
